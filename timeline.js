@@ -12,7 +12,7 @@ function timelineCtrl($scope,$http) {
         }
  ];
 //retrieve the events
-$http.jsonp( 'https://spreadsheets.google.com/feeds/list/1kOA4RNBdGbcleiH8Q8yhc_YD8HHeIluH7opTzTPZYcw/od6/public/values?alt=json-in-script&callback=timeline'
+$http.jsonp( 'https://spreadsheets.google.com/feeds/list/1kOA4RNBdGbcleiH8Q8yhc_YD8HHeIluH7opTzTPZYcw/od6/public/values?alt=json-in-script'
 ).then(function successCallback(response) {
     // this callback will be called asynchronously
  $scope.events.push(response.data);
