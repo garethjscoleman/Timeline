@@ -25,7 +25,7 @@
         </div>
           
         <div class="row bigrow" ng-style="myStyle">
-          <div ng-repeat="event in timelineEvents | orderBy:whendate">
+          <div ng-repeat="event in timelineEvents | orderBy:'whendate'">
             {{event.whendate | date}}{{event.event}}{{event.who}}
             </div>
         </div>
