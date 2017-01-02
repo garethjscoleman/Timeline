@@ -26,7 +26,7 @@
           
         <div class="row bigrow" ng-style="myStyle">
           <div ng-repeat="event in timelineEvents">
-            {{event.whendate }}{{event.event}}{{event.who}}
+            {{event.whendate | date}}{{event.event}}{{event.who}}
             </div>
         </div>
 
