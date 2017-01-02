@@ -33,7 +33,7 @@
              {{filteredEvents[$index - 1].whendate/1000}}
              {{event.whendate/1000}}
              {{60*60*24*36}}
-             {{((filteredEvents[$index - 1].whendate/1000)-(event.whendate/1000)) /(60*60*24*36),10)}}
+             {{((filteredEvents[$index - 1].whendate/1000)-(event.whendate/1000)) /(60*60*24*36)}}
              {{parseInt(((filteredEvents[$index - 1].whendate/1000)-(event.whendate/1000)) /(60*60*24*36),10)}} &nbsp;</div> 
            {{event.whendate | date}}{{event.event}}{{event.who}}
           </div>
