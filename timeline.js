@@ -8,7 +8,7 @@ function timelineCtrl($scope,$http) {
          'who':'',
          'where':'',
          'category':'',
-         'Notes':''
+         'notes':''
         }
  ];
 //retrieve the events
@@ -17,6 +17,12 @@ $http.jsonp( 'https://spreadsheets.google.com/feeds/list/1kOA4RNBdGbcleiH8Q8yhc_
     // this callback will be called asynchronously
  angular.forEach(response.data.feed.entry,function(value,key){
  //put the events in the events object
+  value.when=value.gsx$date.$t;
+  value.event=value.gsx$event.$t;
+  value.who=value.gsx$who.$t;
+  value.where=value.gsx$where.$t;
+  value.category=value.gsx$category.$t;
+  value.notes=value.gsx$notes.$t;
   $scope.timelineEvents.push(value);
  });
  
