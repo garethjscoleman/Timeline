@@ -29,8 +29,9 @@
           
         <div class="row bigrow" ng-style="myStyle">
           <div ng-repeat="event in filteredEvents =  ( timelineEvents | orderBy:'whendate' | filter:thefilter)">
-            {{event.whendate | date}}{{event.event}}{{event.who}}
-            </div>
+           <div ng-show="!$first" ng-style="{'height': parseInt((filteredEvents[$index - 1].whendate-event.whendate) /(1000*60*60*24*36),10) }" ></div> 
+           {{event.whendate | date}}{{event.event}}{{event.who}}
+          </div>
         </div>
 
     </div>
