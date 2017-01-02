@@ -4,6 +4,7 @@ function timelineCtrl($scope,$http) {
  $scope.timelineEvents=[
         {
          'when':'',
+         'whendate':,
          'event':'', 
          'who':'',
          'where':'',
@@ -18,6 +19,7 @@ $http.jsonp( 'https://spreadsheets.google.com/feeds/list/1kOA4RNBdGbcleiH8Q8yhc_
  angular.forEach(response.data.feed.entry,function(value,key){
  //put the events in the events object
   value.when=value.gsx$date.$t;
+  value.whendate = Date.parse(value.when);
   value.event=value.gsx$event.$t;
   value.who=value.gsx$who.$t;
   value.where=value.gsx$where.$t;
