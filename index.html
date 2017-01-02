@@ -31,7 +31,7 @@
           
         
           <div  class="row bigrow"  ng-repeat="event in filteredEvents =  ( timelineEvents | orderBy:'whendate' | filter:thefilter)">
-           <div ng-show="!$first" ng-style="{'border-left':'2px', 'border-color':'black',height: divheight(event.whendate,filteredEvents[$index - 1].whendate), color:'blue' }" >
+           <div ng-show="!$first" ng-style="{'border-left':'2px', 'border-left-color':'black','border-style':'solid',height: divheight(event.whendate,filteredEvents[$index - 1].whendate), color:'blue' }" >
               &nbsp;</div> 
             <div class="span2">{{event.whendate | date}}</div>
             <div class="span4"  popover="{{event.notes}}" popover-trigger="mouseenter" >{{event.event}}</div>
