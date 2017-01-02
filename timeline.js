@@ -1,7 +1,7 @@
 angular.module('timeline', ['ui.bootstrap']);
 
 function timelineCtrl($scope,$http) {
- $scope.events=[
+ $scope.timelineEvents=[
         {
          'when':'',
          'event':'', 
@@ -17,7 +17,7 @@ $http.jsonp( 'https://spreadsheets.google.com/feeds/list/1kOA4RNBdGbcleiH8Q8yhc_
     // this callback will be called asynchronously
  angular.forEach(response.data.feed.entry,function(value,key){
  //put the events in the events object
-  $scope.events.push(value);
+  $scope.timelineEvents.push(value);
  });
  
  
