@@ -29,12 +29,15 @@
           </div>
         </div>
           
-         <div  class="row bigrow">
+         <div  class="row bigrow fixed-header">
             <div class="span2"><h2>When</h2></div>
             <div class="span4"><h2>What</h2></div>
             <div class="span4"><h2>Who</h2></div>
             <div class="span2"><h2>Where</h2></div>
         </div>
+        <div class="row anchor">
+           <div class="span12">
+          
           <div  class="row bigrow"  ng-repeat="event in filteredEvents =  ( timelineEvents | orderBy:'whendate' | filter:thefilter)">
            <div ng-show="!$first" ng-style="{'border-left':'2px', 'border-color':'white','border-left-color':'black','border-style':'solid',height: divheight(event.whendate,filteredEvents[$index - 1].whendate) }" >
               &nbsp;</div> 
@@ -42,6 +45,8 @@
             <div class="span4"  popover="{{event.notes}}" popover-trigger="mouseenter" >{{event.event}}</div>
             <div class="span4">{{event.who}}</div>
             <div class="span2">{{event.where}}</div>
+          </div>
+        </div>
           </div>
         </div>
 
