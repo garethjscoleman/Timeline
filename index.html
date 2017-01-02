@@ -33,7 +33,7 @@
              {{filteredEvents[$index - 1].whendate/1000}}
              {{event.whendate/1000}}
              {{60*60*24*36}}
-             {{  datediff =  ((filteredEvents[$index - 1].whendate/1000)-(event.whendate/1000)) /(60*60*24*36)}}
+             {{  divheight(filteredEvents[$index - 1].whendate,event.whendate)}}
              {{parseInt(-datediff)}} &nbsp;</div> 
            {{event.whendate | date}}{{event.event}}{{event.who}}
           </div>
