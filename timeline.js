@@ -15,7 +15,7 @@ function timelineCtrl($scope,$http) {
 $http.jsonp( 'https://spreadsheets.google.com/feeds/list/1kOA4RNBdGbcleiH8Q8yhc_YD8HHeIluH7opTzTPZYcw/od6/public/values?alt=json-in-script&callback=JSON_CALLBACK'
 ).then(function successCallback(response) {
     // this callback will be called asynchronously
- angular.forEach(response.data.feed.entry,function(value.key){
+ angular.forEach(response.data.feed.entry,function(value,key){
  //put the events in the events object
   $scope.events.push(value);
  });
