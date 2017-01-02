@@ -1,6 +1,6 @@
 angular.module('timeline', ['ui.bootstrap']);
 
-function timelineCtrl($scope) {
+function timelineCtrl($scope,$http) {
  $scope.events=[
         {
          'when':'',
