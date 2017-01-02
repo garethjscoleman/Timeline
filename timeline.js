@@ -2,7 +2,7 @@ angular.module('timeline', ['ui.bootstrap']);
 
 function timelineCtrl($scope,$http) {
  $scope.divheight=function(date2, date1){
- return  (100+parseInt(((date2/1000)-(date1/1000)) /(60*60*24),10)).toString()+'px';
+ return  (50+parseInt(((date2/1000)-(date1/1000)) /(60*60*24*6),10)).toString()+'px';
  }
  
  $scope.timelineEvents=[
