@@ -34,7 +34,7 @@
            <div ng-show="!$first" ng-style="{'border-left':'2px', 'border-color':'black',height: divheight(event.whendate,filteredEvents[$index - 1].whendate), color:'blue' }" >
               &nbsp;</div> 
             <div class="span2">{{event.whendate | date}}</div>
-            <div class="span4"  popover="{{event.notes}}"  >{{event.event}}</div>
+            <div class="span4"  popover="{{event.notes}}" popover-trigger="mouseenter" >{{event.event}}</div>
             <div class="span4">{{event.who}}</div>
             <div class="span2">{{event.where}}</div>
           </div>
