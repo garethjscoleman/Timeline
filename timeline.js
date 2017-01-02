@@ -4,7 +4,7 @@ function timelineCtrl($scope,$http) {
  $scope.timelineEvents=[
         {
          'when':'',
-         'whendate':,
+         'whendate':null,
          'event':'', 
          'who':'',
          'where':'',
