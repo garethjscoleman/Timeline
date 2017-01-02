@@ -29,7 +29,7 @@
           
         <div class="row bigrow" ng-style="myStyle">
           <div ng-repeat="event in filteredEvents =  ( timelineEvents | orderBy:'whendate' | filter:thefilter)">
-           <div ng-show="!$first" ng-style="{'height': divheight(event.whendate,filteredEvents[$index - 1].whendate), 'color':'blue' }" > 
+           <div ng-show="!$first" ng-style="{height: divheight(event.whendate,filteredEvents[$index - 1].whendate), color:'blue' }" > 
              {{  divheight(event.whendate,filteredEvents[$index - 1].whendate)}}
               &nbsp;</div> 
            {{event.whendate | date}}{{event.event}}{{event.who}}
