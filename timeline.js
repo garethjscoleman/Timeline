@@ -23,7 +23,8 @@ timeline.controller('timelineCtrl', ['$scope', '$http', '$mdDialog', function($s
         .show( alert )
         .finally(function() {
           alert = undefined;
-        });                                   
+        });      
+   }
                                      
  $scope.thefilter='';
 $scope.title='Timeline';
