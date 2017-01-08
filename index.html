@@ -56,23 +56,23 @@
       </div>
       <div >          
          <md-list >
-           <div ng-repeat="event in filteredEvents =  ( timelineEvents | orderBy:'whendate' | filter:thefilter)">
-             <div layout-fill ng-show="!$first" ng-style="{'border-left':'2px', 'border-color':'white','border-left-color':'black','border-style':'solid',height: divheight(event.whendate,filteredEvents[$index - 1].whendate) }" >
+           <div ng-repeat="theevent in filteredEvents =  ( timelineEvents | orderBy:'whendate' | filter:thefilter)">
+             <div layout-fill ng-show="!$first" ng-style="{'border-left':'2px', 'border-color':'white','border-left-color':'black','border-style':'solid',height: divheight(theevent.whendate,filteredEvents[$index - 1].whendate) }" >
                 <p>&nbsp;</p>
                </div>
           <div  layout="column" class="md-2-line"  >              
                 <div layout="row"  layout-fill>
 
-                  <div flex="25" >{{event.whendate | date}}</div>
-                  <div flex="25"  >{{event.event}} 
-                      <md-tooltip>    {{event.notes}}
+                  <div flex="25" >{{theevent.whendate | date}}</div>
+                  <div flex="25"  >{{theevent.event}} 
+                      <md-tooltip>    {{theevent.notes}}
                       </md-tooltip>
-                    <md-button ng-click="showDialog($event)" class="md-raised">
+                    <md-button ng-click="showDialog($event, theevent)" class="md-raised">
       Read more ...
       </md-button>
                   </div>
-                  <div flex="25"  >{{event.who}}</div>
-                  <div flex="25"  >{{event.where}}</div>
+                  <div flex="25"  >{{theevent.who}}</div>
+                  <div flex="25"  >{{theevent.where}}</div>
                 </div>
           </div>
             </div>
