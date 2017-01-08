@@ -22,7 +22,7 @@ timeline.controller('timelineCtrl', ['$scope', '$http', '$mdDialog', function($s
            '  </md-dialog-content>' +
            '  <md-dialog-actions>' +
            '    <md-button ng-click="closeDialog()" class="md-primary">' +
-           '      Close Dialog' +
+           '      Close' +
            '    </md-button>' +
            '  </md-dialog-actions>' +
            '</md-dialog>',
