@@ -2,14 +2,7 @@ var timeline = angular.module('timeline', ['ngMaterial']);
 
 
       
-timeline.controller('DialogController',[ '$scope', '$mdDialog', 'theevent' ,function DialogController($scope, $mdDialog, theevent) {
-        $scope.items = theevent;
-        $scope.closeDialog = function() {
-          $mdDialog.hide();
-        }
-      }
 
-]);
 timeline.controller('timelineCtrl', ['$scope', '$http', '$mdDialog', function($scope,$http,$mdDialog)
 {
    function showAlert() {
@@ -25,6 +18,39 @@ timeline.controller('timelineCtrl', ['$scope', '$http', '$mdDialog', function($s
           alert = undefined;
         });      
    }
+      
+   function showDialog($event) {
+       var parentEl = angular.element(document.body);
+       $mdDialog.show({
+         parent: parentEl,
+         targetEvent: $event,
+         template:
+           '<md-dialog aria-label="List dialog">' +
+           '  <md-dialog-content>'+
+           '    <md-list>'+
+           '      <md-list-item ng-repeat="item in items">'+
+           '       <p>Number {{item}}</p>' +
+           '      '+
+           '    </md-list-item></md-list>'+
+           '  </md-dialog-content>' +
+           '  <md-dialog-actions>' +
+           '    <md-button ng-click="closeDialog()" class="md-primary">' +
+           '      Close Dialog' +
+           '    </md-button>' +
+           '  </md-dialog-actions>' +
+           '</md-dialog>',
+         locals: {
+           items: $scope.items
+         },
+         controller: DialogController
+      });   
+      function DialogController($scope, $mdDialog, items) {
+        $scope.items = items;
+        $scope.closeDialog = function() {
+          $mdDialog.hide();
+        }
+      }
+    }
                                      
  $scope.thefilter='';
 $scope.title='Timeline';
