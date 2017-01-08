@@ -2,7 +2,7 @@ var timeline = angular.module('timeline', ['ngMaterial']);
 
 timeline.controller('timelineCtrl', ['$scope', '$http', function($scope,$http)
 {
- $scope.thefilter='my new filter';
+ $scope.thefilter='';
 $scope.title='Timeline';
 $scope.scale=1;
  $scope.divheight=function(date2, date1){
