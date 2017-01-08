@@ -14,7 +14,7 @@ timeline.controller('timelineCtrl', ['$scope', '$http', '$mdDialog', function($s
          template:
            '<md-dialog aria-label="dialog">' +
            '  <md-dialog-title>'+
-           '      {{theevent.what}} on {{theevent.when}}' +
+           '      {{theevent.event}} on {{theevent.when}}' +
            '  </md-dialog-title>' +
            '  <md-dialog-content>'+
            '  <p>{{theevent.notes}}</p> ' +
