@@ -1,4 +1,4 @@
-angular.module('timeline', ['ui.bootstrap']);
+angular.module('timeline', ['ngMaterial']);
 function timelineCtrl($scope,$http) {
  
 $scope.scale=1;
