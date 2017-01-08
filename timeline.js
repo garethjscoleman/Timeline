@@ -5,7 +5,7 @@ var timeline = angular.module('timeline', ['ngMaterial']);
 
 timeline.controller('timelineCtrl', ['$scope', '$http', '$mdDialog', function($scope,$http,$mdDialog)
 {
-   function showAlert() {
+   $scope.showAlert= function () {
       alert = $mdDialog.alert({
         title: 'Attention',
         textContent: 'This is an example of how easy dialogs can be!',
@@ -17,7 +17,7 @@ timeline.controller('timelineCtrl', ['$scope', '$http', '$mdDialog', function($s
         .finally(function() {
           alert = undefined;
         });      
-   }
+   };
       
    function showDialog($event) {
        var parentEl = angular.element(document.body);
