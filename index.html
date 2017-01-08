@@ -64,10 +64,12 @@
                 <div layout="row"  layout-fill>
 
                   <div flex="25" >{{event.whendate | date}}</div>
-                  <div flex="25"  ng-click="showAlert()">{{event.event}} 
+                  <div flex="25"  >{{event.event}} 
                       <md-tooltip>    {{event.notes}}
                       </md-tooltip>
-                    
+                    <md-button ng-click="showAlert()" class="md-raised md-warn">
+      Read more ...
+      </md-button>
                   </div>
                   <div flex="25"  >{{event.who}}</div>
                   <div flex="25"  >{{event.where}}</div>
