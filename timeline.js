@@ -27,11 +27,7 @@ timeline.controller('timelineCtrl', ['$scope', '$http', '$mdDialog', function($s
          template:
            '<md-dialog aria-label="List dialog">' +
            '  <md-dialog-content>'+
-           '    <md-list>'+
-           '      <md-list-item ng-repeat="item in items">'+
-           '       <p>Number {{item}}</p>' +
-           '      '+
-           '    </md-list-item></md-list>'+
+           '      {{theevent}}' +
            '  </md-dialog-content>' +
            '  <md-dialog-actions>' +
            '    <md-button ng-click="closeDialog()" class="md-primary">' +
@@ -40,19 +36,19 @@ timeline.controller('timelineCtrl', ['$scope', '$http', '$mdDialog', function($s
            '  </md-dialog-actions>' +
            '</md-dialog>',
          locals: {
-           items: $scope.items
+           theevent: $scope.thefilter
          },
          controller: DialogController
       });   
-      function DialogController($scope, $mdDialog, items) {
-        $scope.items = items;
+      function DialogController($scope, $mdDialog, theevent) {
+        $scope.items = theevent;
         $scope.closeDialog = function() {
           $mdDialog.hide();
         }
       }
     }
                                      
- $scope.thefilter='';
+$scope.thefilter='';
 $scope.title='Timeline';
 $scope.scale=1;
  $scope.divheight=function(date2, date1){
