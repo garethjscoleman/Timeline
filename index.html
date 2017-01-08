@@ -55,6 +55,24 @@
         <div flex="25"><h2>Where</h2></div>
     </div>
     <div layout="column">          
+       <md-list flex  >
+        <md-subheader class="md-no-sticky">3 line item (with hover)</md-subheader>
+        <md-list-item class="md-3-line" ng-repeat="event in filteredEvents =  ( timelineEvents | orderBy:'whendate' | filter:thefilter)" >
+          <div layout="column" ng-show="!$first" ng-style="{'border-left':'2px', 'border-color':'white','border-left-color':'black','border-style':'solid',height: divheight(event.whendate,filteredEvents[$index - 1].whendate) }" >
+            &nbsp;</div>
+          <div class="md-list-item-text" layout="column">
+            <div layout="row">
+              <h3>{{ event.whendate | date }}</h3>
+              <h4>{{ event.event }}
+              <md-tooltip>    {{event.notes}}
+                </md-tooltip>
+              </h4>
+              <p>{{ event.who}}</p>
+              <p>event.where</p>
+            </div>
+          </div>
+        </md-list-item>
+       </md-list>
         <div   ng-repeat="event in filteredEvents =  ( timelineEvents | orderBy:'whendate' | filter:thefilter)">
           <div layout="column" ng-show="!$first" ng-style="{'border-left':'2px', 'border-color':'white','border-left-color':'black','border-style':'solid',height: divheight(event.whendate,filteredEvents[$index - 1].whendate) }" >
             &nbsp;</div>
