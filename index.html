@@ -62,13 +62,13 @@
             <div class="md-list-item-text" layout="column" layout-fill >
               <div layout="row"  >
 
-                <div flex="25">{{event.whendate | date}}</div>
-                <div flex="25" >{{event.event}} 
+                <div flex="25" layout-fill >{{event.whendate | date}}</div>
+                <div flex="25" layout-fill >{{event.event}} 
                     <md-tooltip>    {{event.notes}}
                     </md-tooltip>
                 </div>
-                <div flex="25">{{event.who}}</div>
-                <div flex="25">{{event.where}}</div>
+                <div flex="25" layout-fill >{{event.who}}</div>
+                <div flex="25" layout-fill >{{event.where}}</div>
               </div>
             </div>
           </md-list-item>
