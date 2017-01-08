@@ -28,20 +28,22 @@
     <md-toolbar>
 
     <div class="md-toolbar-tools">
-      <span>{{title}}</span>
+      <div flex="25">
+        <span >{{title}}</span>
+      </div>
 
       <!-- fill up the space between left and right area -->
       <span flex></span>
-      <form name="searchForm">
-            <md-input-container >
+      <div flex="50">
+            <md-input-container flex="60">
                 <md-icon  class="material-icons">search</md-icon>
                 <input type='text' ng-model="thefilter" aria-label="filter"/>
                </md-input-container>
-            <md-input-container >
+            <md-input-container flex="40">
                 <input type='number' ng-model="scale" min=0.01 step="0.1" aria-label="scale"/>
             </md-input-container>          
-      </form>
       </div>
+     </div>
   </md-toolbar>
   <md-content >
      <div layout="column" layout-xs="column">
