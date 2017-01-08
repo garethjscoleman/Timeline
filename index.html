@@ -32,7 +32,7 @@
 
       <!-- fill up the space between left and right area -->
       <span flex></span>
-
+      <form name="searchForm">
       <md-button>
           <md-input-container md-theme="input" flex md-no-float>
               <md-icon  class="material-icons">search</md-icon>
@@ -43,6 +43,7 @@
 
               </md-input-container>
       </md-button>
+        </form>
     </div>
 
   </md-toolbar>
@@ -54,7 +55,7 @@
             <div class="span4"><h2>Who</h2></div>
             <div class="span2"><h2>Where</h2></div>
         </div>
-        <div class="row anchor">
+        <div layout="row" >
            <div class="span12">
           
           <div  class="row bigrow"  ng-repeat="event in filteredEvents =  ( timelineEvents | orderBy:'whendate' | filter:thefilter)">
