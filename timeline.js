@@ -5,27 +5,14 @@ var timeline = angular.module('timeline', ['ngMaterial']);
 
 timeline.controller('timelineCtrl', ['$scope', '$http', '$mdDialog', function($scope,$http,$mdDialog)
 {
-   $scope.showAlert= function () {
-      alert = $mdDialog.alert({
-        title: 'Attention',
-        textContent: 'This is an example of how easy dialogs can be!',
-        ok: 'Close'
-      });
-
-      $mdDialog
-        .show( alert )
-        .finally(function() {
-          alert = undefined;
-        });      
-   };
       
-   $scope.showDialog=function($event) {
+   $scope.showDialog=function($event,theevent) {
        var parentEl = angular.element(document.body);
        $mdDialog.show({
          parent: parentEl,
          targetEvent: $event,
          template:
-           '<md-dialog aria-label="List dialog">' +
+           '<md-dialog aria-label="dialog">' +
            '  <md-dialog-content>'+
            '      {{theevent}}' +
            '  </md-dialog-content>' +
@@ -36,7 +23,7 @@ timeline.controller('timelineCtrl', ['$scope', '$http', '$mdDialog', function($s
            '  </md-dialog-actions>' +
            '</md-dialog>',
          locals: {
-           theevent: $scope.thefilter
+           theevent: theevent
          },
          controller: DialogController
       });   
