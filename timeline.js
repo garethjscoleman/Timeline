@@ -1,7 +1,50 @@
 var timeline = angular.module('timeline', ['ngMaterial']);
 
-timeline.controller('timelineCtrl', ['$scope', '$http', function($scope,$http)
+function showDialog($event) {
+       var parentEl = angular.element(document.body);
+       $mdDialog.show({
+         parent: parentEl,
+         targetEvent: $event,
+         template:
+           '<md-dialog aria-label="List dialog">' +
+           '  <md-dialog-content>'+
+           '   {{theevent}}'+
+           '  </md-dialog-content>' +
+           '  <md-dialog-actions>' +
+           '    <md-button ng-click="closeDialog()" class="md-primary">' +
+           '      Close Dialog' +
+           '    </md-button>' +
+           '  </md-dialog-actions>' +
+           '</md-dialog>',
+         locals: {
+           items: $scope.items
+         },
+         controller: DialogController
+      });
+      
+timeline.controller('DialogController',[ '$scope', '$mdDialog', 'theevent' ,function DialogController($scope, $mdDialog, theevent) {
+        $scope.items = theevent;
+        $scope.closeDialog = function() {
+          $mdDialog.hide();
+        }
+      }
+
+]);
+timeline.controller('timelineCtrl', ['$scope', '$http', '$mdDialog', function($scope,$http,$mdDialog)
 {
+   function showAlert() {
+      alert = $mdDialog.alert({
+        title: 'Attention',
+        textContent: 'This is an example of how easy dialogs can be!',
+        ok: 'Close'
+      });
+
+      $mdDialog
+        .show( alert )
+        .finally(function() {
+          alert = undefined;
+        });                                   
+                                     
  $scope.thefilter='';
 $scope.title='Timeline';
 $scope.scale=1;
