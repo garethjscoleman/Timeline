@@ -57,11 +57,11 @@
       <div >          
          <md-list  >
           <md-list-item  layout="column" class="md-2-line" ng-repeat="event in filteredEvents =  ( timelineEvents | orderBy:'whendate' | filter:thefilter)" >
-              <div  ng-show="!$first" ng-style="{'border-left':'2px', 'border-color':'white','border-left-color':'black','border-style':'solid',height: divheight(event.whendate,filteredEvents[$index - 1].whendate) }" >
+              <div layout-fill ng-show="!$first" ng-style="{'border-left':'2px', 'border-color':'white','border-left-color':'black','border-style':'solid',height: divheight(event.whendate,filteredEvents[$index - 1].whendate) }" >
                 <p>&nbsp;</p>
                </div>
-              <div layout="column">
-                <div layout="row"  >
+              <div layout="column" layout-fill>
+                <div layout="row"  layout-fill>
 
                   <div flex="25" >{{event.whendate | date}}</div>
                   <div flex="25"  >{{event.event}} 
