@@ -1,6 +1,6 @@
 var timeline = angular.module('timeline', ['ngMaterial']);
 
-timelinemyApp.controller('timelineCtrl', ['$scope', '$http', function($scope,$http)
+timeline.controller('timelineCtrl', ['$scope', '$http', function($scope,$http)
 {
  
 $scope.scale=1;
