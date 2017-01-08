@@ -45,50 +45,36 @@
         </md-slider-container>          
       </div>
      </div>
-  </md-toolbar>
-  <md-content >
-    <div layout="column" layout-xs="column">
-     <div  layout="row">
-        <div flex="25"><h2>When</h2></div>
-        <div flex="25"><h2>What</h2></div>
-        <div flex="25"><h2>Who</h2></div>
-        <div flex="25"><h2>Where</h2></div>
-    </div>
-    <div >          
-       <md-list layout="column" layout-fill >
-        <md-list-item  layout="column"  layout-fill class="md-3-line" ng-repeat="event in filteredEvents =  ( timelineEvents | orderBy:'whendate' | filter:thefilter)" >
-          <div layout-fill  ng-show="!$first" ng-style="{'border-left':'2px', 'border-color':'white','border-left-color':'black','border-style':'solid',height: divheight(event.whendate,filteredEvents[$index - 1].whendate) }" >
-            &nbsp;</div>
-          <div class="md-list-item-text" layout-fill  >
-            <div layout="row"  >
-              
-              <div flex="25">{{event.whendate | date}}</div>
-              <div flex="25" >{{event.event}} 
-                  <md-tooltip>    {{event.notes}}
-                  </md-tooltip>
-              </div>
-              <div flex="25">{{event.who}}</div>
-              <div flex="25">{{event.where}}</div>
-            </div>
-          </div>
-        </md-list-item>
-       </md-list>
-        <div   ng-repeat="event in filteredEvents =  ( timelineEvents | orderBy:'whendate' | filter:thefilter)">
-          <div layout="column" ng-show="!$first" ng-style="{'border-left':'2px', 'border-color':'white','border-left-color':'black','border-style':'solid',height: divheight(event.whendate,filteredEvents[$index - 1].whendate) }" >
-            &nbsp;</div>
-          <div layout="row">
-            <div flex="25">{{event.whendate | date}}</div>
-            <div flex="25" >{{event.event}} 
-                <md-tooltip>    {{event.notes}}
-                </md-tooltip>
-            </div>
-            <div flex="25">{{event.who}}</div>
-            <div flex="25">{{event.where}}</div>
-            
-          </div>           
-        </div>
-       </div>
+    </md-toolbar>
+    <md-content >
+      <div layout="column" layout-xs="column">
+       <div  layout="row">
+          <div flex="25"><h2>When</h2></div>
+          <div flex="25"><h2>What</h2></div>
+          <div flex="25"><h2>Who</h2></div>
+          <div flex="25"><h2>Where</h2></div>
       </div>
-    </md-content>
+      <div >          
+         <md-list layout="column" layout-fill >
+          <md-list-item  layout="column"  layout-fill class="md-3-line" ng-repeat="event in filteredEvents =  ( timelineEvents | orderBy:'whendate' | filter:thefilter)" >
+            <div  ng-show="!$first" ng-style="{'border-left':'2px', 'border-color':'white','border-left-color':'black','border-style':'solid',height: divheight(event.whendate,filteredEvents[$index - 1].whendate) }" >
+              &nbsp;</div>
+            <div class="md-list-item-text"   >
+              <div layout="row"  >
+
+                <div flex="25">{{event.whendate | date}}</div>
+                <div flex="25" >{{event.event}} 
+                    <md-tooltip>    {{event.notes}}
+                    </md-tooltip>
+                </div>
+                <div flex="25">{{event.who}}</div>
+                <div flex="25">{{event.where}}</div>
+              </div>
+            </div>
+          </md-list-item>
+         </md-list>
+         </div>
+        </div>
+      </md-content>
   </body>
 </html>
