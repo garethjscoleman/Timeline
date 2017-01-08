@@ -55,8 +55,8 @@
         <div flex="25"><h2>Where</h2></div>
     </div>
     <div layout="column">          
-       <md-list flex  >
-        <md-list-item class="md-3-line" ng-repeat="event in filteredEvents =  ( timelineEvents | orderBy:'whendate' | filter:thefilter)" >
+       <md-list flex layout="column" >
+        <md-list-item layout="column" class="md-3-line" ng-repeat="event in filteredEvents =  ( timelineEvents | orderBy:'whendate' | filter:thefilter)" >
           <div flex="90" layout="column" ng-show="!$first" ng-style="{'border-left':'2px', 'border-color':'white','border-left-color':'black','border-style':'solid',height: divheight(event.whendate,filteredEvents[$index - 1].whendate) }" >
             &nbsp;</div>
           <div class="md-list-item-text" layout="column">
