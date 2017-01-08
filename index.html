@@ -25,7 +25,7 @@
     <![endif]-->
   </head>
   <body  ng-controller="timelineCtrl">
-      <md-toolbar>
+    <md-toolbar>
 
     <div class="md-toolbar-tools">
       <span>{{title}}</span>
@@ -34,46 +34,35 @@
       <span flex></span>
       <span>search {{thefilter}} filter </span>
       <form name="searchForm">
-      <md-button>
-          <md-input-container  flex md-no-float>
-              <md-icon  class="material-icons">search</md-icon>
-              <input type='text' ng-model="thefilter" aria-label="filter"/>
-             </md-input-container>
-          <md-input-container  flex md-no-float>
-              <input type='number' ng-model="scale" min=0.01 step="0.1" aria-label="scale"/>
-
-              </md-input-container>
-      </md-button>
-        </form>
-    </div>
-
+            <md-input-container  flex md-no-float>
+                <md-icon  class="material-icons">search</md-icon>
+                <input type='text' ng-model="thefilter" aria-label="filter"/>
+               </md-input-container>
+            <md-input-container  flex md-no-float>
+                <input type='number' ng-model="scale" min=0.01 step="0.1" aria-label="scale"/>
+            </md-input-container>          
+      </form>
+      </div>
   </md-toolbar>
-      <md-content >
-         <div layout="row" layout-xs="column">
-         <div  layout="row">
-            <div class="span2"><h2>When</h2></div>
-            <div class="span4"><h2>What</h2></div>
-            <div class="span4"><h2>Who</h2></div>
-            <div class="span2"><h2>Where</h2></div>
+  <md-content >
+     <div layout="row" layout-xs="column">
+     <div  flex="100">
+        <div class="span2"><h2>When</h2></div>
+        <div class="span4"><h2>What</h2></div>
+        <div class="span4"><h2>Who</h2></div>
+        <div class="span2"><h2>Where</h2></div>
+    </div>
+    <div flex="100" >          
+        <div  class="row bigrow"  ng-repeat="event in filteredEvents =  ( timelineEvents | orderBy:'whendate' | filter:thefilter)">
+         <div ng-show="!$first" ng-style="{'border-left':'2px', 'border-color':'white','border-left-color':'black','border-style':'solid',height: divheight(event.whendate,filteredEvents[$index - 1].whendate) }" >
+            &nbsp;</div> 
+          <div class="span2">{{event.whendate | date}}</div>
+          <div class="span4"  popover="{{event.notes}}" popover-trigger="mouseenter" >{{event.event}}</div>
+          <div class="span4">{{event.who}}</div>
+          <div class="span2">{{event.where}}</div>
         </div>
-        <div layout="row" >
-           <div class="span12">
-          
-          <div  class="row bigrow"  ng-repeat="event in filteredEvents =  ( timelineEvents | orderBy:'whendate' | filter:thefilter)">
-           <div ng-show="!$first" ng-style="{'border-left':'2px', 'border-color':'white','border-left-color':'black','border-style':'solid',height: divheight(event.whendate,filteredEvents[$index - 1].whendate) }" >
-              &nbsp;</div> 
-            <div class="span2">{{event.whendate | date}}</div>
-            <div class="span4"  popover="{{event.notes}}" popover-trigger="mouseenter" >{{event.event}}</div>
-            <div class="span4">{{event.who}}</div>
-            <div class="span2">{{event.where}}</div>
-          </div>
-        </div>
-          </div>
-          </div>
-        </md-content>
-
-   
- 
-     
+       </div>
+      </div>
+    </md-content>
   </body>
 </html>
