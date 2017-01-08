@@ -19,7 +19,7 @@ timeline.controller('timelineCtrl', ['$scope', '$http', '$mdDialog', function($s
         });      
    };
       
-   function showDialog($event) {
+   $scope.showDialog=function($event) {
        var parentEl = angular.element(document.body);
        $mdDialog.show({
          parent: parentEl,
@@ -46,7 +46,7 @@ timeline.controller('timelineCtrl', ['$scope', '$http', '$mdDialog', function($s
           $mdDialog.hide();
         }
       }
-    }
+    };
                                      
 $scope.thefilter='';
 $scope.title='Timeline';
