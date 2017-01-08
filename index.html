@@ -60,9 +60,7 @@
              <div layout-fill ng-show="!$first" ng-style="{'border-left':'2px', 'border-color':'white','border-left-color':'black','border-style':'solid',height: divheight(event.whendate,filteredEvents[$index - 1].whendate) }" >
                 <p>&nbsp;</p>
                </div>
-          <md-list-item  layout="column" class="md-2-line"  >
-              
-              <div layout="column" layout-fill>
+          <md-list-item  layout="column" class="md-2-line"  >              
                 <div layout="row"  layout-fill>
 
                   <div flex="25" >{{event.whendate | date}}</div>
@@ -73,7 +71,6 @@
                   <div flex="25"  >{{event.who}}</div>
                   <div flex="25"  >{{event.where}}</div>
                 </div>
-              </div>       
           </md-list-item>
             </div>
          </md-list>
