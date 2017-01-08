@@ -28,7 +28,7 @@ timeline.controller('timelineCtrl', ['$scope', '$http', '$mdDialog', function($s
          controller: DialogController
       });   
       function DialogController($scope, $mdDialog, theevent) {
-        $scope.items = theevent;
+        $scope.theevent = theevent;
         $scope.closeDialog = function() {
           $mdDialog.hide();
         }
