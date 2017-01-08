@@ -23,19 +23,27 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
-  <body  ng-app="timeline">
-    <div ng-controller="timelineCtrl">
-        <div class="row">
-          <div class="span9">
-          <h1>{{title}}</h1>
-            <form >
+  <body  ng-app="timeline" ng-controller="timelineCtrl">
+      <md-toolbar>
+
+    <div class="md-toolbar-tools">
+      <span>{{title}}</span>
+
+      <!-- fill up the space between left and right area -->
+      <span flex></span>
+
+      <md-button>
+          <form >
               <input type='text' ng-model="thefilter"/>
               <input type='number' ng-model="scale" min=0.01 step="0.1"/>
 
               </form>
-          </div>
-        </div>
-          
+      </md-button>
+    </div>
+
+  </md-toolbar>
+      <md-content>
+          <div layout="row" layout-xs="column">
          <div  class="row bigrow fixed-header">
             <div class="span2"><h2>When</h2></div>
             <div class="span4"><h2>What</h2></div>
@@ -55,7 +63,8 @@
           </div>
         </div>
           </div>
-        </div>
+          </div>
+        </md-content>
 
    
  
