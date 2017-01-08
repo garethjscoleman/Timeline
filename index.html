@@ -53,14 +53,15 @@
         <div flex="25"><h2>Where</h2></div>
     </div>
     <div layout="column">          
-        <div  layout="row" ng-repeat="event in filteredEvents =  ( timelineEvents | orderBy:'whendate' | filter:thefilter)">
+        <div   ng-repeat="event in filteredEvents =  ( timelineEvents | orderBy:'whendate' | filter:thefilter)">
           <div layout="column" ng-show="!$first" ng-style="{'border-left':'2px', 'border-color':'white','border-left-color':'black','border-style':'solid',height: divheight(event.whendate,filteredEvents[$index - 1].whendate) }" >
-            &nbsp;</div> 
-          <div flex="25">{{event.whendate | date}}</div>
-          <div flex="25"  popover="{{event.notes}}" popover-trigger="mouseenter" >{{event.event}}</div>
-          <div flex="25">{{event.who}}</div>
-          <div flex="25">{{event.where}}</div>
-           
+            &nbsp;</div>
+          <div layout="row">
+            <div flex="25">{{event.whendate | date}}</div>
+            <div flex="25"  popover="{{event.notes}}" popover-trigger="mouseenter" >{{event.event}}</div>
+            <div flex="25">{{event.who}}</div>
+            <div flex="25">{{event.where}}</div>
+          </div>           
         </div>
        </div>
       </div>
