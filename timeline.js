@@ -1,5 +1,7 @@
-angular.module('timeline', ['ngMaterial']);
-function timelineCtrl($scope,$http) {
+var timeline = angular.module('timeline', ['ngMaterial']);
+
+timelinemyApp.controller('timelineCtrl', ['$scope', '$http', function($scope,$http)
+{
  
 $scope.scale=1;
  $scope.divheight=function(date2, date1){
