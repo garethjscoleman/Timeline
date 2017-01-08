@@ -33,10 +33,10 @@
       <span flex></span>
 
       <md-button>
-          <md-input-container >
+          <md-input-container md-theme="input" flex md-no-float>
               <input type='text' ng-model="thefilter" aria-label="filter"/>
              </md-input-container>
-          <md-input-container >
+          <md-input-container md-theme="input" flex md-no-float>
               <input type='number' ng-model="scale" min=0.01 step="0.1" aria-label="scale"/>
 
               </md-input-container>
@@ -44,9 +44,9 @@
     </div>
 
   </md-toolbar>
-      <md-content>
-          <div layout="row" layout-xs="column">
-         <div  class="row bigrow fixed-header">
+      <md-content >
+         <div layout="row" layout-xs="column">
+         <div  layout="row">
             <div class="span2"><h2>When</h2></div>
             <div class="span4"><h2>What</h2></div>
             <div class="span4"><h2>Who</h2></div>
