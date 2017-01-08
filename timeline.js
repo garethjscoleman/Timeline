@@ -17,8 +17,8 @@ timeline.controller('timelineCtrl', ['$scope', '$http', '$mdDialog', function($s
            '      {{theevent.what}} on {{theevent.when}}' +
            '  </md-dialog-title>' +
            '  <md-dialog-content>'+
-           '  <p>{{theevent.note}}</p> ' 
-           '     <p> {{theevent.notes}}</p>' +
+           '  <p>{{theevent.notes}}</p> ' +
+           '     <p> {{theevent.who}}</p>' +
            '  </md-dialog-content>' +
            '  <md-dialog-actions>' +
            '    <md-button ng-click="closeDialog()" class="md-primary">' +
