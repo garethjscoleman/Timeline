@@ -33,11 +33,11 @@
       <span flex></span>
 
       <md-button>
-          <form >
-              <input type='text' ng-model="thefilter"/>
-              <input type='number' ng-model="scale" min=0.01 step="0.1"/>
+          <md-input-container >
+              <input type='text' ng-model="thefilter" aria-label="filter"/>
+              <input type='number' ng-model="scale" min=0.01 step="0.1" aria-label="scale"/>
 
-              </form>
+              </md-input-container>
       </md-button>
     </div>
 
