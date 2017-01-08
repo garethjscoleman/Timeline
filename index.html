@@ -59,9 +59,13 @@
             &nbsp;</div>
           <div layout="row">
             <div flex="25">{{event.whendate | date}}</div>
-            <div flex="25"  popover="{{event.notes}}" popover-trigger="mouseenter" >{{event.event}}</div>
+            <div flex="25" >{{event.event}} 
+                <md-tooltip>    {{event.notes}}
+                </md-tooltip>
+            </div>
             <div flex="25">{{event.who}}</div>
             <div flex="25">{{event.where}}</div>
+            
           </div>           
         </div>
        </div>
