@@ -1,26 +1,6 @@
 var timeline = angular.module('timeline', ['ngMaterial']);
 
-function showDialog($event) {
-       var parentEl = angular.element(document.body);
-       $mdDialog.show({
-         parent: parentEl,
-         targetEvent: $event,
-         template:
-           '<md-dialog aria-label="List dialog">' +
-           '  <md-dialog-content>'+
-           '   {{theevent}}'+
-           '  </md-dialog-content>' +
-           '  <md-dialog-actions>' +
-           '    <md-button ng-click="closeDialog()" class="md-primary">' +
-           '      Close Dialog' +
-           '    </md-button>' +
-           '  </md-dialog-actions>' +
-           '</md-dialog>',
-         locals: {
-           items: $scope.items
-         },
-         controller: DialogController
-      });
+
       
 timeline.controller('DialogController',[ '$scope', '$mdDialog', 'theevent' ,function DialogController($scope, $mdDialog, theevent) {
         $scope.items = theevent;
