@@ -43,6 +43,6 @@ $http.jsonp( 'https://spreadsheets.google.com/feeds/list/1kOA4RNBdGbcleiH8Q8yhc_
     // or server returns response with an error status.
   });
 }
-
+]);
 
 
