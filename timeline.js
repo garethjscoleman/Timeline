@@ -79,7 +79,7 @@ $http.jsonp( 'https://spreadsheets.google.com/feeds/list/1kOA4RNBdGbcleiH8Q8yhc_
   }, function errorCallback(response) {
     // called asynchronously if an error occurs
     // or server returns response with an error status.
-  }));
+  });
  return this;
 }
 ]);
