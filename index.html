@@ -55,12 +55,12 @@
          <md-content >
         <md-grid-list   md-cols=1 md-row-height="100px"  md-gutter="1em" >
           <md-grid-tile ng-repeat="theevent in filteredEvents =  ( thetimeline.timelineEvents | orderBy:'whendate' | filter:thetimeline.thefilter)">
-            <md-grid-tile-header>
-              <h3> <div flex="25" >{{theevent.whendate | date}}</div>
+            <md-grid-tile-header layout="row">
+               <div flex="25" >{{theevent.whendate | date}}</div>
               <div flex="25"  >{{theevent.event}}</div>
               <div flex="25"  >{{theevent.who}}</div>
               <div flex="25"  >{{theevent.where}}</div>
-              </h3>
+              
             </md-grid-tile-header>
           </md-grid-tile>
 </md-grid-list>
