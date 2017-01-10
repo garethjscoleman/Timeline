@@ -51,7 +51,25 @@
           <div flex="25"><h2>Who</h2></div>
           <div flex="25"><h2>Where</h2></div>
       </div>
-      <div >          
+      <div >
+        <md-content ng-repeat="theevent in filteredEvents =  ( thetimeline.timelineEvents | orderBy:'whendate' | filter:thetimeline.thefilter)">
+             <div layout-fill ng-show="!$first" ng-style="{'border-left':'2px', 'border-color':'white','border-left-color':'black','border-style':'solid',height: thetimeline.divheight(theevent.whendate,thetimeline.filteredEvents[$index - 1].whendate) }" >
+                <p>&nbsp;</p>
+               </div>
+             <md-card  md-image-no-fill>
+                 <img  src="card-image.png" class="md-card-image" alt="image caption">
+                 <md-card-content>
+                   <h2>On {{theevent.whendate | date}} -  {{theevent.event}}</h2>
+                   <p>{{theevent.event}} </p>
+                 </md-card-content>
+                 <md-card-footer>
+                  <div flex="25"  >{{theevent.who}}</div>
+                  <div flex="25"  >{{theevent.where}}</div>
+                 </md-card-footer>
+                </md-card>
+          
+          </md-content>
+        
          <md-list >
            <div ng-repeat="theevent in filteredEvents =  ( thetimeline.timelineEvents | orderBy:'whendate' | filter:thetimeline.thefilter)">
              <div layout-fill ng-show="!$first" ng-style="{'border-left':'2px', 'border-color':'white','border-left-color':'black','border-style':'solid',height: thetimeline.divheight(theevent.whendate,thetimeline.filteredEvents[$index - 1].whendate) }" >
