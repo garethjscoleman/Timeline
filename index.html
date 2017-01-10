@@ -53,7 +53,7 @@
       </div>
       <div >
          <md-content >
-        <md-grid-list   md-cols=1 md-row-height="fit"  md-gutter="1em" >
+        <md-grid-list   md-cols=1 md-row-height="100px"  md-gutter="1em" >
           <md-grid-tile ng-repeat="theevent in filteredEvents =  ( thetimeline.timelineEvents | orderBy:'whendate' | filter:thetimeline.thefilter)">
             <md-grid-tile-header>
               <h3>On {{theevent.whendate | date}} -  {{theevent.event}}</h3>
