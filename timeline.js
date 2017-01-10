@@ -44,6 +44,9 @@ this.scale=1;
  this.divheight=function(date2, date1){
  return  (parseInt(10*$scope.scale/2,10 )+parseInt($scope.scale/16* ((date2/1000)-(date1/1000)) /((60*60*24)),10)).toString()+'px';
  }
+ this.tileheight=function(date2, date1){
+ return  parseInt(10*$scope.scale/2,10 )+parseInt($scope.scale/16* ((date2/1000)-(date1/1000)) /((60*60*24)),10));
+ }
  
  this.timelineEvents=[
         {
