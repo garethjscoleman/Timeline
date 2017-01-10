@@ -25,16 +25,15 @@
     <![endif]-->
   </head>
   <body  ng-controller="timelineCtrl as thetimeline">
-    <md-toolbar style="height:50px">
-
+    <md-toolbar >
     <div layout="row" layout-align="start center">
-      <div flex="25">
+       <div show-gt-xs flex="25">
         <span >{{title}}</span>
       </div>
 
       <!-- fill up the space between left and right area -->
-      <span flex></span>
-      <div flex="50" layout="row" >
+      <span flex show-gt-xs></span>
+      <div >
             <md-input-container flex="60"  md-no-float >
                 <md-icon  layout-align="end center" class="material-icons">search</md-icon>
                 <input layout-align="end center" type='text' ng-model="thetimeline.thefilter" placeholder="Search here" ng-style="{'background-color':'white', 'color':'black'}" aria-label="filter"/>
