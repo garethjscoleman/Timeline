@@ -33,16 +33,14 @@
 
       <!-- fill up the space between left and right area -->
       <span flex show-gt-xs></span>
-      <div >
-            <md-input-container flex="60"  md-no-float >
-                <md-icon  layout-align="end center" class="material-icons">search</md-icon>
-                <input layout-align="end center" type='text' ng-model="thetimeline.thefilter" placeholder="Search here" ng-style="{'background-color':'white', 'color':'black'}" aria-label="filter"/>
-            </md-input-container>
-            <md-slider-container flex="40"  layout-align="end center">
-                <md-slider md-discrete ng-model="thetimeline.scale" step="0.1" min="0.1" max="2">
-                </md-slider>            
-            </md-slider-container>          
-      </div>
+        <md-input-container   md-no-float >
+            <md-icon   class="material-icons">search</md-icon>
+            <input  type='text' ng-model="thetimeline.thefilter" placeholder="Search here" ng-style="{'background-color':'white', 'color':'black'}" aria-label="filter"/>
+        </md-input-container>
+        <md-slider-container   >
+            <md-slider md-discrete ng-model="thetimeline.scale" step="0.1" min="0.1" max="2">
+            </md-slider>            
+        </md-slider-container>          
      </div>
     </md-toolbar >
     <md-content >
