@@ -60,7 +60,7 @@
               <div flex="25"  >{{theevent.who}}</div>
               <div flex="25"  >{{theevent.where}}</div>
             
-            <div flex="10" >{{thetimeline.divheight(theevent.whendate,thetimeline.filteredEvents[$index + 1].whendate) }}</div>
+            <div flex="10"  ng-show="!$last">{{thetimeline.tileheight(theevent.whendate,thetimeline.filteredEvents[$index + 1].whendate) }}</div>
           </md-grid-tile>
 </md-grid-list>
         </md-content>
