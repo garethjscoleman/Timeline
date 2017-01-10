@@ -46,7 +46,7 @@ this.scale=1;
  return  (parseInt(10*scale/2,10 )+parseInt(scale/16* ((date2/1000)-(date1/1000)) /((60*60*24)),10)).toString()+'px';
  }
  this.tileheight=function(date2, date1){
- return  parseInt(10*scale/2,10 )+parseInt(scale/16* ((date2/1000)-(date1/1000)) /((60*60*24)),10);
+ return  parseInt(scale/2,10 )+parseInt(scale/16* ((date2/1000)-(date1/1000)) /((60*60*240)),10);
  }
  
  this.timelineEvents=[
