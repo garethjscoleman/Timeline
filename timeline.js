@@ -6,7 +6,7 @@ var timeline = angular.module('timeline', ['ngMaterial']);
 timeline.controller('timelineCtrl', ['$scope', '$http', '$mdDialog', function($scope,$http,$mdDialog)
 {
       
-   $scope.showDialog=function($event,theevent) {
+   this.showDialog=function($event,theevent) {
        var parentEl = angular.element(document.body);
        $mdDialog.show({
          parent: parentEl,
@@ -38,15 +38,14 @@ timeline.controller('timelineCtrl', ['$scope', '$http', '$mdDialog', function($s
         }
       }
     };
-                                     
-$scope.thefilter='';
-$scope.title='Timeline';
-$scope.scale=1;
- $scope.divheight=function(date2, date1){
+this.thefilter='';
+this.title='Timeline';
+this.scale=1;
+ this.divheight=function(date2, date1){
  return  (parseInt(10*$scope.scale/2,10 )+parseInt($scope.scale/16* ((date2/1000)-(date1/1000)) /((60*60*24)),10)).toString()+'px';
  }
  
- $scope.timelineEvents=[
+ this.timelineEvents=[
         {
          'when':'',
          'whendate':null,
@@ -70,7 +69,7 @@ $http.jsonp( 'https://spreadsheets.google.com/feeds/list/1kOA4RNBdGbcleiH8Q8yhc_
   value.where=value.gsx$where.$t;
   value.category=value.gsx$category.$t;
   value.notes=value.gsx$notes.$t;
-  $scope.timelineEvents.push(value);
+  this.timelineEvents.push(value);
  });
  
  
@@ -80,6 +79,7 @@ $http.jsonp( 'https://spreadsheets.google.com/feeds/list/1kOA4RNBdGbcleiH8Q8yhc_
     // called asynchronously if an error occurs
     // or server returns response with an error status.
   });
+ return this;
 }
 ]);
 
