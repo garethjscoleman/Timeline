@@ -52,6 +52,7 @@
           <div flex="25"><h2>Where</h2></div>
       </div>
       <div >
+         <md-content >
         <md-grid-list  md-gutter="1em" >
           <md-grid-tile ng-repeat="theevent in filteredEvents =  ( thetimeline.timelineEvents | orderBy:'whendate' | filter:thetimeline.thefilter)">
             <md-grid-tile-header>
@@ -61,6 +62,7 @@
              <div flex="25"  >{{theevent.where}}</div>
           </md-grid-tile>
 </md-grid-list>
+        </md-content>
         <md-content ng-repeat="theevent in filteredEvents =  ( thetimeline.timelineEvents | orderBy:'whendate' | filter:thetimeline.thefilter)">
              <div layout-fill ng-show="!$first" ng-style="{'border-left':'2px', 'border-color':'white','border-left-color':'black','border-style':'solid',height: thetimeline.divheight(theevent.whendate,thetimeline.filteredEvents[$index - 1].whendate) }" >
                 <p>&nbsp;</p>
