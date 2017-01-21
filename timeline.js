@@ -3,9 +3,16 @@ var timeline = angular.module('timeline', ['ngMaterial']);
 
 
 
-timeline.controller('timelineCtrl', ['$scope', '$http', '$mdDialog','$mdMedia', function($scope,$http,$mdDialog,$mdMedia)
+timeline.controller('timelineCtrl', ['$scope', '$filter', '$http', '$mdDialog','$mdMedia', function($scope,$filter,$http,$mdDialog,$mdMedia)
 {
       
+       
+   this.filteredEvents=$filter('orderBy')($Filter('filter')(this.timelineEvents,this.thefilter),'whendate');
+   $scope.$watch(angular.bind(this, function () {
+        return this.thefilter;
+   }), function (newVal) {
+        this.filteredEvents=$filter('orderBy')($Filter('filter')(this.timelineEvents,this.thefilter),'whendate');
+   });
    this.setTheEvent=function($event,theEvent)
   {
       this.theselectedevent=theEvent;
