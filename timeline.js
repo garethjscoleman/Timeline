@@ -11,7 +11,7 @@ timeline.controller('timelineCtrl', ['$scope', '$filter', '$http', '$mdDialog','
    $scope.$watch(angular.bind(this, function () {
         return this.thefilter;
    }), function (newVal) {
-        this.filteredEvents=$filter('orderBy')($Filter('filter')(this.timelineEvents,this.thefilter),'whendate');
+        this.filteredEvents=$filter('orderBy')($filter('filter')(this.timelineEvents,this.thefilter),'whendate');
    });
    this.setTheEvent=function($event,theEvent)
   {
@@ -115,7 +115,7 @@ $http.jsonp( 'https://spreadsheets.google.com/feeds/list/1kOA4RNBdGbcleiH8Q8yhc_
   value.notes=value.gsx$notes.$t;
   thetimeline.timelineEvents.push(value);
  });
-  this.filteredEvents=$filter('orderBy')($Filter('filter')(this.timelineEvents,this.thefilter),'whendate');
+  this.filteredEvents=$filter('orderBy')($filter('filter')(this.timelineEvents,this.thefilter),'whendate');
   thetimeline.theselectedevent = thetimeline.filteredEvents[0];
  //put the 
     // when the response is available
