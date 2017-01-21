@@ -12,6 +12,7 @@ timeline.controller('timelineCtrl', ['$scope', '$filter', '$http', '$mdDialog','
         return this.thefilter;
    }), function (newVal) {
         this.filteredEvents=$filter('orderBy')($filter('filter')(this.timelineEvents,this.thefilter),'whendate');
+        this.theselectedevent = this.filteredEvents[0];
    });
    this.setTheEvent=function($event,theEvent)
   {
