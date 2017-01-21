@@ -8,7 +8,7 @@ timeline.controller('timelineCtrl', ['$scope', '$http', '$mdDialog','$mdMedia', 
       
    this.setTheEvent=function($event,theEvent)
   {
-      this.selectedevent=theEvent;
+      this.theselectedevent=theEvent;
 
       //if the right hand pane is not displayed the send the details to a modal
       if(!$mdMedia('gt-sm')){
