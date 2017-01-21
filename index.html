@@ -67,7 +67,8 @@
                <md-list role="list" class="md-default-theme">
                    <md-list-item   ng-click="thetimeline.setTheEvent($event,theevent)" role="listitem" class="md-no-proxy" ng-repeat="theevent in filteredEvents =  ( thetimeline.timelineEvents | orderBy:'whendate' | filter:thetimeline.thefilter)"  >
                    	    <md-icon class="md-default-theme material-icons">&#xE878;</md-icon>
-                   	    <p >Event {{theevent.event}}</p>
+                   	    <p>{{theevent.whendate | date}}</p>
+                        <p>{{theevent.event}}</p>
                    </md-list-item>
                </md-list>
 
@@ -78,10 +79,27 @@
 
     <md-content  hide show-gt-sm flex="66">
 
-        <h1>Event {{thetimeline.theselectedevent.event}}</h1>
-        <h2 ph-txt="1s"></h2>
-        <p ph-txt="5s"></p>
+        <h1>{{thetimeline.theselectedevent.event}}</h1>
+        <div layout="column">
+            <div layout="row">
+                <span flex="25">When   </span>
+                <span flex="75">{{thetimeline.theselectedevent.whendate | date}}</span>
+             </div>
+            <div layout="row">
+                <span flex="25">Who   </span>
+                <span flex="75">{{thetimeline.theselectedevent.who }}</span>
+             </div>
+            <div layout="row">
+                <span flex="25">Where   </span>
+                <span flex="75">{{thetimeline.theselectedevent.where }}</span>
+             </div>
+            <div layout="row">
+                <span flex="25">Details   </span>
+                <span flex="75">{{thetimeline.theselectedevent.notes}}</span>
+             </div>
+         </div>
 
+                  
     </md-content>
 </div>
       
