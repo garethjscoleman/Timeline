@@ -65,7 +65,7 @@
 
 
                <md-list role="list" class="md-default-theme">
-                   <md-list-item   ng-click="thetimeline.settheevent($event,theevent)" role="listitem" class="md-no-proxy" ng-repeat="theevent in filteredEvents =  ( thetimeline.timelineEvents | orderBy:'whendate' | filter:thetimeline.thefilter)"  >
+                   <md-list-item   ng-click="thetimeline.setTheEvent($event,theevent)" role="listitem" class="md-no-proxy" ng-repeat="theevent in filteredEvents =  ( thetimeline.timelineEvents | orderBy:'whendate' | filter:thetimeline.thefilter)"  >
                    	    <md-icon class="md-default-theme material-icons">&#xE878;</md-icon>
                    	    <p >Event {{theevent.event}}</p>
                    </md-list-item>
