@@ -5,7 +5,11 @@ var timeline = angular.module('timeline', ['ngMaterial']);
 
 timeline.controller('timelineCtrl', ['$scope', '$filter', '$http', '$mdDialog','$mdMedia', function($scope,$filter,$http,$mdDialog,$mdMedia)
 {
-   this.thefilter='';
+   
+//retrieve the events
+var thetimeline=this;
+
+this.thefilter='';
 this.title='Timeline';
 this.scale=1;
       var scale=this.scale;
@@ -30,12 +34,10 @@ this.scale=1;
    
        
    this.filteredEvents=$filter('orderBy')($filter('filter')(this.timelineEvents,this.thefilter),'whendate');
-   $scope.$watch(angular.bind(this, function () {
-        return this.thefilter;
-   }), function (newVal) {
-        this.filteredEvents=$filter('orderBy')($filter('filter')(this.timelineEvents,this.thefilter),'whendate');
+   $scope.$watch('thetimeline.thefilter), function (newVal) {
+        thetimeline.filteredEvents=$filter('orderBy')($filter('filter')(thetimeline.timelineEvents,thetimeline.thefilter),'whendate');
          if (typeof(this.filteredEvents)!='undefined'){
-           this.theselectedevent = this.filteredEvents[0];
+           thetimeline.theselectedevent = thetimeline.filteredEvents[0];
          }
    });
    this.setTheEvent=function($event,theEvent)
