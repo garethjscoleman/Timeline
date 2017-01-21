@@ -115,8 +115,8 @@ $http.jsonp( 'https://spreadsheets.google.com/feeds/list/1kOA4RNBdGbcleiH8Q8yhc_
   value.notes=value.gsx$notes.$t;
   thetimeline.timelineEvents.push(value);
  });
- 
-  thetimeline.theselectedevent = thetimeline.timelineEvents[0];
+  this.filteredEvents=$filter('orderBy')($Filter('filter')(this.timelineEvents,this.thefilter),'whendate');
+  thetimeline.theselectedevent = thetimeline.filteredEvents[0];
  //put the 
     // when the response is available
   }, function errorCallback(response) {
