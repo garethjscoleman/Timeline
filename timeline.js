@@ -28,8 +28,29 @@ timeline.controller('timelineCtrl', ['$scope', '$http', '$mdDialog','$mdMedia', 
            '      {{theevent.event}} on {{theevent.when}}' +
            '  </md-dialog-title>' +
            '  <md-dialog-content>'+
-           '  <p>{{theevent.notes}}</p> ' +
-           '     <p> {{theevent.who}}</p>' +
+           '<md-card>' +
+           '  <md-card-content>' +
+           '     <h2>{{theevent.event}}</h2>' +
+           '     <div layout="column">' +
+           '      <div layout="row">' +
+           '          <span flex="25">When   </span>' +
+           '          <span flex="75">{{theevent.whendate | date}}</span>' +
+           '       </div>' +
+           '      <div layout="row">' +
+           '          <span flex="25">Who   </span>' +
+           '          <span flex="75">{{theevent.who }}</span>' +
+           '       </div>' +
+           '      <div layout="row">' +
+           '          <span flex="25">Where   </span>' +
+           '          <span flex="75">{{theevent.where }}</span>' +
+           '       </div>' +
+           '      <div layout="row">' +
+           '          <span flex="25">Details   </span>' +
+           '          <span flex="75">{{theevent.notes}}</span>' +
+           '       </div>' +
+           '   </div>' +
+           '   </md-card-content>' +
+           ' </md-card>     ' +     
            '  </md-dialog-content>' +
            '  <md-dialog-actions>' +
            '    <md-button ng-click="closeDialog()" class="md-primary">' +
