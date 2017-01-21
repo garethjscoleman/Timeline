@@ -1,10 +1,21 @@
 var timeline = angular.module('timeline', ['ngMaterial']);
 
 
-      
 
-timeline.controller('timelineCtrl', ['$scope', '$http', '$mdDialog', function($scope,$http,$mdDialog)
+
+timeline.controller('timelineCtrl', ['$scope', '$http', '$mdDialog','$mdMedia', function($scope,$http,$mdDialog,$mdMedia)
 {
+      
+   this.setTheEvent=function($event,theEvent)
+  {
+      this.selectedevent=theEvent;
+
+      //if the right hand pane is not displayed the send the details to a modal
+      if(!$mdMedia('gt-sm')){
+          this.showDialog($event, theEvent);
+      }
+
+  };
       
    this.showDialog=function($event,theevent) {
        var parentEl = angular.element(document.body);
