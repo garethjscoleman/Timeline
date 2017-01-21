@@ -5,14 +5,38 @@ var timeline = angular.module('timeline', ['ngMaterial']);
 
 timeline.controller('timelineCtrl', ['$scope', '$filter', '$http', '$mdDialog','$mdMedia', function($scope,$filter,$http,$mdDialog,$mdMedia)
 {
-      
+   this.thefilter='';
+this.title='Timeline';
+this.scale=1;
+      var scale=this.scale;
+ this.divheight=function(date2, date1){
+ return  (parseInt(10*scale/2,10 )+parseInt(scale/16* ((date2/1000)-(date1/1000)) /((60*60*24)),10)).toString()+'px';
+ }
+ this.tileheight=function(date2, date1){
+ return  parseInt(scale/2,10 )+parseInt(scale/16* ((date2/1000)-(date1/1000)) /((60*60*240)),10);
+ }
+ 
+ this.timelineEvents=[
+        {
+         'when':'',
+         'whendate':null,
+         'event':'', 
+         'who':'',
+         'where':'',
+         'category':'',
+         'notes':''
+        }
+ ];
+   
        
    this.filteredEvents=$filter('orderBy')($filter('filter')(this.timelineEvents,this.thefilter),'whendate');
    $scope.$watch(angular.bind(this, function () {
         return this.thefilter;
    }), function (newVal) {
         this.filteredEvents=$filter('orderBy')($filter('filter')(this.timelineEvents,this.thefilter),'whendate');
-        this.theselectedevent = this.filteredEvents[0];
+         if (typeof(this.filteredEvents)!='undefined'){
+           this.theselectedevent = this.filteredEvents[0];
+         }
    });
    this.setTheEvent=function($event,theEvent)
   {
@@ -78,28 +102,6 @@ timeline.controller('timelineCtrl', ['$scope', '$filter', '$http', '$mdDialog','
         }
       }
     };
-this.thefilter='';
-this.title='Timeline';
-this.scale=1;
-      var scale=this.scale;
- this.divheight=function(date2, date1){
- return  (parseInt(10*scale/2,10 )+parseInt(scale/16* ((date2/1000)-(date1/1000)) /((60*60*24)),10)).toString()+'px';
- }
- this.tileheight=function(date2, date1){
- return  parseInt(scale/2,10 )+parseInt(scale/16* ((date2/1000)-(date1/1000)) /((60*60*240)),10);
- }
- 
- this.timelineEvents=[
-        {
-         'when':'',
-         'whendate':null,
-         'event':'', 
-         'who':'',
-         'where':'',
-         'category':'',
-         'notes':''
-        }
- ];
 //retrieve the events
 var thetimeline=this;
 $http.jsonp( 'https://spreadsheets.google.com/feeds/list/1kOA4RNBdGbcleiH8Q8yhc_YD8HHeIluH7opTzTPZYcw/od6/public/values?alt=json-in-script&callback=JSON_CALLBACK'
