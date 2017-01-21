@@ -36,7 +36,7 @@ this.scale=1;
    this.filteredEvents=$filter('orderBy')($filter('filter')(this.timelineEvents,this.thefilter),'whendate');
    $scope.$watch('thetimeline.thefilter', function (newVal) {
         thetimeline.filteredEvents=$filter('orderBy')($filter('filter')(thetimeline.timelineEvents,thetimeline.thefilter),'whendate');
-         if (typeof(this.filteredEvents)!='undefined'){
+         if (typeof(thetimeline.filteredEvents)!='undefined'){
            thetimeline.theselectedevent = thetimeline.filteredEvents[0];
          }
    });
