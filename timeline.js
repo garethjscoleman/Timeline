@@ -88,7 +88,7 @@ $http.jsonp( 'https://spreadsheets.google.com/feeds/list/1kOA4RNBdGbcleiH8Q8yhc_
   thetimeline.timelineEvents.push(value);
  });
  
- 
+  thetimeline.theselectedevent = thetimeline.timelineEvents[0];
  //put the 
     // when the response is available
   }, function errorCallback(response) {
