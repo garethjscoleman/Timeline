@@ -7,7 +7,7 @@ timeline.controller('timelineCtrl', ['$scope', '$filter', '$http', '$mdDialog','
 {
       
        
-   this.filteredEvents=$filter('orderBy')($Filter('filter')(this.timelineEvents,this.thefilter),'whendate');
+   this.filteredEvents=$filter('orderBy')($filter('filter')(this.timelineEvents,this.thefilter),'whendate');
    $scope.$watch(angular.bind(this, function () {
         return this.thefilter;
    }), function (newVal) {
