@@ -112,68 +112,6 @@
     </md-content>
 </div>
       
-      <div layout="column" layout-xs="column">
-       <div  layout="row">
-          <div flex="25"><h2>When</h2></div>
-          <div flex="25"><h2>What</h2></div>
-          <div flex="25"><h2>Who</h2></div>
-          <div flex="25"><h2>Where</h2></div>
-      </div>
-      <div >
-         <md-content >
-        <md-grid-list   md-cols=1 md-row-height="10px"  md-gutter="1em" >
-          <md-grid-tile ng-repeat-start="theevent in filteredEvents   "  >
-              <div flex="25" >{{theevent.whendate | date}}</div>
-              <div flex="25"  >{{theevent.event}}</div>
-              <div flex="25"  >{{theevent.who}}</div>
-              <div flex="25"  >{{theevent.where}}</div>            
-          </md-grid-tile>
-          <md-grid-tile ng-repeat-end md-row-span="{{thetimeline.tileheight(thetimeline.filteredEvents[$index + 1].whendate,theevent.whendate) }}" >       
-            <div flex="10"  ng-show="!$last">{{thetimeline.tileheight(filteredEvents[$index + 1].whendate,theevent.whendate) }}</div>
-          </md-grid-tile>
-        </md-grid-list>
-        </md-content>
-        <md-content ng-repeat="theevent in filteredEvents =  ( thetimeline.timelineEvents | orderBy:'whendate' | filter:thetimeline.thefilter)">
-             <div layout-fill ng-show="!$first" ng-style="{'border-left':'2px', 'border-color':'white','border-left-color':'black','border-style':'solid',height: thetimeline.divheight(theevent.whendate,filteredEvents[$index - 1].whendate) }" >
-                <p>&nbsp;</p>
-               </div>
-             <md-card  md-image-no-fill>
-                 <img  src="card-image.png" class="md-card-image" alt="image caption">
-                 <md-card-content>
-                   <h2>On {{theevent.whendate | date}} -  {{theevent.event}}</h2>
-                   <p>{{theevent.event}} </p>
-                 </md-card-content>
-                 <md-card-footer>
-                  <div flex="25"  >{{theevent.who}}</div>
-                  <div flex="25"  >{{theevent.where}}</div>
-                 </md-card-footer>
-                </md-card>
-          
-          </md-content>
-         <md-list >
-           <div ng-repeat="theevent in filteredEvents ">
-             <div layout-fill ng-show="!$first" ng-style="{'border-left':'2px', 'border-color':'white','border-left-color':'black','border-style':'solid',height: thetimeline.divheight(theevent.whendate,filteredEvents[$index - 1].whendate) }" >
-                <p>&nbsp;</p>
-               </div>
-          <div  layout="column" class="md-2-line"  >              
-                <div layout="row"  layout-fill>
-
-                  <div flex="25" >{{theevent.whendate | date}}</div>
-                  <div flex="25"  >{{theevent.event}} 
-                      <md-tooltip>    {{theevent.notes}}
-                      </md-tooltip>
-                    <md-button ng-click="thetimeline.showDialog($event, theevent)" class="md-raised">
-                    Read more ...
-                    </md-button>
-                  </div>
-                  <div flex="25"  >{{theevent.who}}</div>
-                  <div flex="25"  >{{theevent.where}}</div>
-                </div>
-          </div>
-            </div>
-         </md-list>
-         </div>
-        </div>
       </md-content>
   </body>
 </html>
