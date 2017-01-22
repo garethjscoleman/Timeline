@@ -64,14 +64,19 @@
                </md-content>
 
 
-               <md-list role="list" class="md-default-theme">
-                   <md-list-item   ng-click="thetimeline.setTheEvent($event,theevent)" role="listitem" class="md-no-proxy md-2-line" ng-repeat="theevent in filteredEvents "  >
-                   	    <md-icon class="md-default-theme material-icons">&#xE878;</md-icon>
-                   	     <div class="md-list-item-text" layout="column">
-                           <p>{{theevent.whendate | date}}</p>
-                           <p>{{theevent.event}}</p>
-                           </div>
-                   </md-list-item>
+               <md-list  class="md-default-theme" layout-fill role="list" ng-style="{'height':'288px'}">
+                 <div md-virtual-repeat-container>
+                   <md-list role="list"  >
+                     <md-list-item   ng-click="thetimeline.setTheEvent($event,theevent)" role="listitem" class="md-no-proxy md-2-line" ng-repeat="theevent in filteredEvents "  >
+                          <md-icon class="md-default-theme material-icons">&#xE878;</md-icon>
+                           <div class="md-list-item-text" layout="column">
+                             <p>{{theevent.whendate | date}}</p>
+                             <p>{{theevent.event}}</p>
+                             </div>
+                     </md-list-item>
+                   </md-list  >
+                 </div>
+                     
                </md-list>
 
             </md-content>
