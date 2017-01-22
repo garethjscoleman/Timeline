@@ -11,6 +11,12 @@ h1, h2, h3, h4, h5, h6 {
   color:#222;
   margin:0 0 20px;
 }
+.md-virtual-repeat-container.md-orient-vertical {
+    height: 100%;
+}
+.md-list.table-fixed-width.md-whiteframe-z1 {
+    height: 100%;
+}
 
 p, ul, ol, table, pre, dl {
   margin:0 0 20px;
