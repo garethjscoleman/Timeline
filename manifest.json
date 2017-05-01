@@ -1,0 +1,10 @@
+{
+  "name": "Timeline",
+  "short_name": "Timeline",
+  "icons": [
+  ],
+  "background_color": "#aaaaaa",
+  "theme_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "index.html"
+}
