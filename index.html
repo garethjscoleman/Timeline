@@ -17,7 +17,17 @@
 
   <!-- Angular Material Library -->
   <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>    
-    <script src="timeline.js"></script>
+    <script defer>
+  if (navigator.serviceWorker) {
+    navigator.serviceWorker.register('sw.js').then(() => {
+      console.log('Service worker installed')
+    }, err => {
+      console.error('Service worker error:', err);
+    });
+  }   
+      </script>
+
+      <script src="timeline.js"></script>
     
      <link href="stylesheets/mainstyle.css" rel="stylesheet">
     <!--[if lt IE 9]>
