@@ -55,7 +55,10 @@ self.addEventListener('fetch', (e) => {
                // Do nothing.
                log('Service Worker: something went wrong with a fetch');
           });
-        });
+        }).catch(function() {
+               // Do nothing.
+               log('Service Worker: perhaps something went wrong with a fetch');
+          });;
     })
   );
 });
