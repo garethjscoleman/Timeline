@@ -48,12 +48,12 @@ self.addEventListener('fetch', (e) => {
     caches.match(e.request.clone()).then((response) => {
       return response || fetch(e.request.clone()).then((r2) => {
           return caches.open(dataCacheName).then((cache) => {
-            console.log('Service Worker: Fetched & Cached URL ', e.request.url);
+            log('Service Worker: Fetched & Cached URL ', e.request.url);
             cache.put(e.request.url, r2.clone());
             return r2.clone();
           }).catch(function() {
                // Do nothing.
-               console.log('Service Worker: something went wrong with a fetch');
+               log('Service Worker: something went wrong with a fetch');
           });
         });
     })
