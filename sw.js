@@ -6,7 +6,8 @@ let cacheName = 'pwa-client-v' + version;
 let dataCacheName = 'pwa-client-data-v' + version;
 let appShellFilesToCache = [
   './',
-  './index.html'
+  './index.html',
+  'https://spreadsheets.google.com/feeds/list/1kOA4RNBdGbcleiH8Q8yhc_YD8HHeIluH7opTzTPZYcw/od6/public/values?alt=json-in-script&callback=JSON_CALLBACK'
 ];
  
 self.addEventListener('install', (e) => {
