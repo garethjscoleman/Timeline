@@ -51,6 +51,9 @@ self.addEventListener('fetch', (e) => {
             console.log('Service Worker: Fetched & Cached URL ', e.request.url);
             cache.put(e.request.url, r2.clone());
             return r2.clone();
+          }).catch(function() {
+               // Do nothing.
+               console.log('Service Worker: something went wrong with a fetch');
           });
         });
     })
