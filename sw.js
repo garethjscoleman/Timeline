@@ -46,13 +46,20 @@ self.addEventListener('fetch', (e) => {
     // Match requests for data and handle them separately
     e.respondWith(
         caches.match(e.request.clone()).then((response) => {
-            return response || fetch(e.request.clone()).then((r2) => {
-                return caches.open(dataCacheName).then((cache) => {
+           
+            
+   
+
+            // respond from the cache, or the network
+            var fetchPromise = fetch(e.request.clone()).then((networkResponse) => {
+                var theresponse = caches.open(dataCacheName).then((cache) => {
                     log('Service Worker: Fetched & Cached URL ', e.request.url);
-                    cache.put(e.request.url, r2.clone());
-                    return r2.clone();
+                    cache.put(e.request.url, networkResponse.clone());
+                    return networkResponse.clone();
                 });
+                return theresponse;
             });
+            return response || fetchPromise;
         })
     );
 });
