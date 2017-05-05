@@ -103,7 +103,7 @@ timeline.controller('timelineCtrl', ['$scope', '$filter', '$http', '$mdDialog', 
         }
     };
     //retrieve the events
-    var thetimeline = this;
+
     $http.jsonp('https://spreadsheets.google.com/feeds/list/1kOA4RNBdGbcleiH8Q8yhc_YD8HHeIluH7opTzTPZYcw/od6/public/values?alt=json-in-script&callback=JSON_CALLBACK').then(function successCallback(response) {
         // this callback will be called asynchronously
         angular.forEach(response.data.feed.entry, function(value, key) {
