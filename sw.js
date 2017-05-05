@@ -58,7 +58,7 @@ self.addEventListener('fetch', (e) => {
    
 
             // respond from the cache, or the network
-            var fetchPromise = fetch(e.request.clone()).then(handleErrors).then((networkResponse) => {
+            var fetchPromise = fetch(e.request.clone()).then((networkResponse) => {
                 
                 log('Response for',e.request.url, 'was', networkResponse.ok);
                 if(networkResponse.ok){
