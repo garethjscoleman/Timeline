@@ -68,11 +68,7 @@ self.addEventListener('fetch', (e) => {
                     return networkResponse.clone();
                 });
                 return theresponse;
-            }).catch(){
-            log('Bad Response from' + e.request.url + '?');
-            }
-            
-            ;
+            }).catch(error => log(error));
             return response || fetchPromise;
         })
     );
