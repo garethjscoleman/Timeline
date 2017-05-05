@@ -53,6 +53,6 @@ self.addEventListener('fetch', (e) => {
                     return r2.clone();
                 });
             });
-        });
-    )
+        })
+    );
 });
