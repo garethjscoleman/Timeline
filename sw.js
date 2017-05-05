@@ -52,6 +52,7 @@ self.addEventListener('fetch', (e) => {
 
             // respond from the cache, or the network
             var fetchPromise = fetch(e.request.clone()).then((networkResponse) => {
+                log('Response for',e.request.url, 'was', networkResponse.ok);
                 var theresponse = caches.open(dataCacheName).then((cache) => {
                     log('Service Worker: Fetched & Cached URL ', e.request.url);
                     cache.put(e.request.url, networkResponse.clone());
