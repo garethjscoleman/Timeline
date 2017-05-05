@@ -61,13 +61,14 @@ self.addEventListener('fetch', (e) => {
             var fetchPromise = fetch(e.request.clone()).then(handleErrors).then((networkResponse) => {
                 
                 log('Response for',e.request.url, 'was', networkResponse.ok);
-                
-                var theresponse = caches.open(dataCacheName).then((cache) => {
-                    log('Service Worker: Fetched & Cached URL ', e.request.url);
-                    cache.put(e.request.url, networkResponse.clone());
-                    return networkResponse.clone();
-                });
-                return theresponse;
+                if(networkResponse.ok){
+                    var theresponse = caches.open(dataCacheName).then((cache) => {
+                        log('Service Worker: Fetched & Cached URL ', e.request.url);
+                        cache.put(e.request.url, networkResponse.clone());
+                        return networkResponse.clone();
+                    });
+                    return theresponse;
+                }
             }).catch(error => log(error));
             return response || fetchPromise;
         })
