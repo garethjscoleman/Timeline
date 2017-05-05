@@ -60,6 +60,7 @@ self.addEventListener('fetch', (e) => {
           caches.open(dataCacheName).then(function(cache) {
             return fetch(e.request, {mode: 'no-cors'}).then(function(response){
               cache.put(e.request.url, response.clone());
+              log('Service Worker: Fetched & Cached URL ', e.request.url);
               return response;
             });
           })
@@ -75,10 +76,10 @@ self.addEventListener('fetch', (e) => {
                 // respond from the cache, or the network
                 var fetchPromise = fetch(e.request.clone()).then((networkResponse) => {
 
-                    log('Response for',e.request.url, 'was', networkResponse.ok);
+                    //log('Response for',e.request.url, 'was', networkResponse.ok);
                     if(networkResponse.ok){
                         var theresponse = caches.open(dataCacheName).then((cache) => {
-                            log('Service Worker: Fetched & Cached URL ', e.request.url);
+                            //log('Service Worker: Fetched & Cached URL ', e.request.url);
                             cache.put(e.request.url, networkResponse.clone());
                             return networkResponse.clone();
                         });
