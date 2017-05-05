@@ -8,6 +8,12 @@ let appShellFilesToCache = [
     './',
     './index.html',
     'https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js',
+    'https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js',
+    'https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js',
+    'https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js',
+    'https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js',    
+    'timeline.js',
+    'stylesheets/mainstyle.css',    
     'https://spreadsheets.google.com/feeds/list/1kOA4RNBdGbcleiH8Q8yhc_YD8HHeIluH7opTzTPZYcw/od6/public/values?alt=json-in-script&callback=JSON_CALLBACK'
 ];
 
