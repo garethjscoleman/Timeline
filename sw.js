@@ -12,7 +12,7 @@ let appShellFilesToCache = [
 
 function handleErrors(response) {
     if (!response.ok) {
-        throw Error(response.statusText);
+        log(response.statusText);
     }
     return response;
 }
