@@ -53,7 +53,7 @@ self.addEventListener('fetch', (e) => {
          //this time just skip trying to cache this
           if(1===1){
               e.respondWith(
-                   return fetch(e.request).then(function(response){
+                  fetch(e.request).then(function(response){
                       log('Service Worker: Fetched but not cached URL ', e.request.url);
                       return response;
                     });
