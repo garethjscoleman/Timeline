@@ -1,1 +1,1 @@
-angular.callbacks._0({"offline":"2.0"});
+angular.callbacks._0({"offline":true});
