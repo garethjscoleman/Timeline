@@ -59,7 +59,7 @@ self.addEventListener('fetch', (e) => {
                       return response;
                     }).catch(error => {
                         log(error);
-                        return caches.match('/offline.js')
+                        return caches.match('./offline.js')
                       })
                   );
          }
