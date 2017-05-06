@@ -6,6 +6,7 @@ let cacheName = 'pwa-client-v' + version;
 let dataCacheName = 'pwa-client-data-v' + version;
 let appShellFilesToCache = [
     './',
+    './offline.js',
     './index.html'];
 
 function handleErrors(response) {
