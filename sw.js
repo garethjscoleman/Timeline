@@ -56,7 +56,7 @@ self.addEventListener('fetch', (e) => {
                   fetch(e.request).then(function(response){
                       log('Service Worker: Fetched but not cached URL ', e.request.url);
                       return response;
-                    })
+                    }).catch(error => log(error))
                   );
          }
          else
