@@ -28,8 +28,8 @@ timeline.controller('timelineCtrl', ['$scope', '$filter', '$http', '$mdDialog', 
         'category': '',
         'notes': ''
     }];
-    if (localStorage['events']) {
-        thetimeline.timelineEvents = JSON.parse(localStorage['events']);
+    if (!!localStorage.getItem('events')) {
+        thetimeline.timelineEvents = JSON.parse(localStorage.getItem('events'));
     }
 
     this.filteredEvents = $filter('orderBy')($filter('filter')(this.timelineEvents, this.thefilter), 'whendate');
@@ -117,7 +117,7 @@ timeline.controller('timelineCtrl', ['$scope', '$filter', '$http', '$mdDialog', 
             value.notes = value.gsx$notes.$t;
             thetimeline.timelineEvents.push(value);
         });
-        localStorage['events'] = JSON.stringify(thetimeline.timelineEvents);
+        localStorage.setItem('events') = JSON.stringify(thetimeline.timelineEvents);
         thetimeline.filteredEvents = $filter('orderBy')($filter('filter')(thetimeline.timelineEvents, this.thefilter), 'whendate');
         thetimeline.theselectedevent = thetimeline.filteredEvents[0];
         //put the 
