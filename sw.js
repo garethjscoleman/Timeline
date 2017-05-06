@@ -8,14 +8,14 @@ let appShellFilesToCache = [
     './',
     './offline.js',
     'https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js',
- -    'https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js',
- -    'https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js',
- -    'https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js',
- -    'https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js',    
- -    'https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css',
- -    'https://fonts.googleapis.com/icon?family=Material+Icons',
- -    'timeline.js',
- -    'stylesheets/mainstyle.css',    
+     'https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js',
+     'https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js',
+     'https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js',
+     'https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js',    
+     'https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css',
+     'https://fonts.googleapis.com/icon?family=Material+Icons',
+     'timeline.js',
+     'stylesheets/mainstyle.css',    
     './index.html'];
 
 function handleErrors(response) {
