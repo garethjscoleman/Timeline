@@ -117,7 +117,7 @@ timeline.controller('timelineCtrl', ['$scope', '$filter', '$http', '$mdDialog', 
             value.notes = value.gsx$notes.$t;
             thetimeline.timelineEvents.push(value);
         });
-        localStorage.setItem('events') = JSON.stringify(thetimeline.timelineEvents);
+        localStorage.setItem('events', JSON.stringify(thetimeline.timelineEvents));
         thetimeline.filteredEvents = $filter('orderBy')($filter('filter')(thetimeline.timelineEvents, this.thefilter), 'whendate');
         thetimeline.theselectedevent = thetimeline.filteredEvents[0];
         //put the 
