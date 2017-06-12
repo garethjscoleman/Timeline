@@ -14,6 +14,7 @@ let appShellFilesToCache = [
      'https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js',    
      'https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css',
      'https://fonts.googleapis.com/icon?family=Material+Icons',
+     'https://apis.google.com/js/api.js',
      'timeline.js',
      'stylesheets/mainstyle.css',    
     './index.html'];
