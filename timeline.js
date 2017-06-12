@@ -74,13 +74,21 @@ timeline.controller('timelineCtrl', ['$scope', '$filter', '$http', '$mdDialog', 
       function getData  () {
         gapi.client.sheets.spreadsheets.values.get({
           spreadsheetId: '1kOA4RNBdGbcleiH8Q8yhc_YD8HHeIluH7opTzTPZYcw',
-          range: 'Sheet1!A5:E',
+          range: 'Sheet1!A:F',
         }).then(function(response) {
           var range = response.result;
           if (range.values.length > 0) {
             
             for (i = 0; i < range.values.length; i++) {
               var row = range.values[i];
+                value.when = row[0];
+                value.whendate = Date.parse(row[0]);
+                value.event = row[1];
+                value.where = row[2];
+                value.who = row[3];
+                value.category = row[4];
+                value.notes = row[5];
+                thetimeline.timelineEvents.push(value);
             }
           } else {
           }
@@ -188,30 +196,30 @@ timeline.controller('timelineCtrl', ['$scope', '$filter', '$http', '$mdDialog', 
     };
     //retrieve the events
 
-    $http.jsonp('https://spreadsheets.google.com/feeds/list/1kOA4RNBdGbcleiH8Q8yhc_YD8HHeIluH7opTzTPZYcw/od6/public/values?alt=json-in-script&callback=JSON_CALLBACK').then(function successCallback(response) {
+    //$http.jsonp('https://spreadsheets.google.com/feeds/list/1kOA4RNBdGbcleiH8Q8yhc_YD8HHeIluH7opTzTPZYcw/od6/public/values?alt=json-in-script&callback=JSON_CALLBACK').then(function successCallback(response) {
         // this callback will be called asynchronously
-        if (!response.data.offline){
-            angular.forEach(response.data.feed.entry, function(value, key) {
+    //    if (!response.data.offline){
+    //        angular.forEach(response.data.feed.entry, function(value, key) {
                 //put the events in the events object
-                value.when = value.gsx$date.$t;
-                value.whendate = Date.parse(value.when);
-                value.event = value.gsx$event.$t;
-                value.who = value.gsx$who.$t;
-                value.where = value.gsx$where.$t;
-                value.category = value.gsx$category.$t;
-                value.notes = value.gsx$notes.$t;
-                thetimeline.timelineEvents.push(value);
-            });
-            localStorage.setItem('events', JSON.stringify(thetimeline.timelineEvents));
-            thetimeline.filteredEvents = $filter('orderBy')($filter('filter')(thetimeline.timelineEvents, this.thefilter), 'whendate');
-            thetimeline.theselectedevent = thetimeline.filteredEvents[0];
-            }
+    //            value.when = value.gsx$date.$t;
+    //            value.whendate = Date.parse(value.when);
+    //            value.event = value.gsx$event.$t;
+    //            value.who = value.gsx$who.$t;
+    //            value.where = value.gsx$where.$t;
+    //            value.category = value.gsx$category.$t;
+    //            value.notes = value.gsx$notes.$t;
+    //            thetimeline.timelineEvents.push(value);
+    //        });
+    //        localStorage.setItem('events', JSON.stringify(thetimeline.timelineEvents));
+    //        thetimeline.filteredEvents = $filter('orderBy')($filter('filter')(thetimeline.timelineEvents, this.thefilter), 'whendate');
+    //        thetimeline.theselectedevent = thetimeline.filteredEvents[0];
+    //        }
             //put the 
         // when the response is available
-    }, function errorCallback(response) {
+    //}, function errorCallback(response) {
         // called asynchronously if an error occurs
         // or server returns response with an error status.
-    });
+    //});
     
     handleClientLoad()
     
