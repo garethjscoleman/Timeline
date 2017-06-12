@@ -50,7 +50,7 @@ timeline.controller('timelineCtrl', ['$scope', '$filter', '$http', '$mdDialog', 
        */
        function updateSigninStatus(isSignedIn) {
         if (isSignedIn) {
-          this.getData();
+          getData();
         } else {
         }
       }
@@ -71,7 +71,7 @@ timeline.controller('timelineCtrl', ['$scope', '$filter', '$http', '$mdDialog', 
 
 
      
-      this.getData = function () {
+      function getData  () {
         gapi.client.sheets.spreadsheets.values.get({
           spreadsheetId: '1kOA4RNBdGbcleiH8Q8yhc_YD8HHeIluH7opTzTPZYcw',
           range: 'Sheet1!A5:E',
