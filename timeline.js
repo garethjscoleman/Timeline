@@ -48,7 +48,7 @@ timeline.controller('timelineCtrl', ['$scope', '$filter', '$http', '$mdDialog', 
        *  Called when the signed in status changes, to update the UI
        *  appropriately. After a sign-in, the API is called.
        */
-      this.updateSigninStatus = function (isSignedIn) {
+       function updateSigninStatus(isSignedIn) {
         if (isSignedIn) {
           this.getData();
         } else {
