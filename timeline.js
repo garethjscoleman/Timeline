@@ -52,6 +52,15 @@ timeline.controller('timelineCtrl', ['$scope', '$filter', '$http', '$mdDialog', 
         if (isSignedIn) {
           getData();
         } else {
+            thetimeline.timelineEvents = [{
+        'when': '',
+        'whendate': null,
+        'event': '',
+        'who': '',
+        'where': '',
+        'category': '',
+        'notes': ''
+    }];
         }
       }
 
