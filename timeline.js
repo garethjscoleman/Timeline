@@ -91,6 +91,8 @@ timeline.controller('timelineCtrl', ['$scope', '$filter', '$http', '$mdDialog', 
                 value.notes = row[5];
                 thetimeline.timelineEvents.push(value);
             }
+            thetimeline.filteredEvents = $filter('orderBy')($filter('filter')(thetimeline.timelineEvents, this.thefilter), 'whendate');
+            thetimeline.theselectedevent = thetimeline.filteredEvents[0];
           } else {
           }
         }, function(response) {
