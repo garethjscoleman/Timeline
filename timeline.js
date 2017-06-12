@@ -81,6 +81,7 @@ timeline.controller('timelineCtrl', ['$scope', '$filter', '$http', '$mdDialog', 
             
             for (i = 0; i < range.values.length; i++) {
               var row = range.values[i];
+              var value ={when:""};  
                 value.when = row[0];
                 value.whendate = Date.parse(row[0]);
                 value.event = row[1];
