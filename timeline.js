@@ -61,6 +61,8 @@ timeline.controller('timelineCtrl', ['$scope', '$filter', '$http', '$mdDialog', 
         'category': '',
         'notes': ''
     }];
+            thetimeline.filteredEvents = $filter('orderBy')($filter('filter')(thetimeline.timelineEvents, this.thefilter), 'whendate');
+            thetimeline.theselectedevent = thetimeline.filteredEvents[0];
         }
       }
 
