@@ -5,6 +5,7 @@ var timeline = angular.module('timeline', ['ngMaterial']);
 
 timeline.controller('timelineCtrl', ['$scope', '$filter', '$http', '$mdDialog', '$mdMedia', function($scope, $filter, $http, $mdDialog, $mdMedia) {
 
+    var thetimeline = this;
     
     // Client ID and API key from the Developer Console
       var CLIENT_ID = '825826093539-sc86q0mghugds3t9qpo7b2rni289g8oa.apps.googleusercontent.com';
@@ -89,7 +90,7 @@ timeline.controller('timelineCtrl', ['$scope', '$filter', '$http', '$mdDialog', 
 
     
     //retrieve the events
-    var thetimeline = this;
+    
 
     this.thefilter = '';
     this.title = 'Timeline';
