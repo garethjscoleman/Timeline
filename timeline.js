@@ -99,6 +99,7 @@ timeline.controller('timelineCtrl', ['$scope', '$filter', '$http', '$mdDialog', 
                 value.category = row[4];
                 value.notes = row[5];
                 thetimeline.timelineEvents.push(value);
+                console.log('adding value');
             }
             localStorage.setItem('events', JSON.stringify(thetimeline.timelineEvents));
             thetimeline.filteredEvents = $filter('orderBy')($filter('filter')(thetimeline.timelineEvents, this.thefilter), 'whendate');
