@@ -122,7 +122,7 @@ timeline.controller('timelineCtrl', ['$scope', '$filter', '$http', '$mdDialog', 
         'notes': ''
     }];
     if (!!localStorage.getItem('events')) {
-        thetimeline.timelineEvents = JSON.parse(localStorage.getItem('events'));
+       // thetimeline.timelineEvents = JSON.parse(localStorage.getItem('events'));
     }
 
     this.filteredEvents = $filter('orderBy')($filter('filter')(this.timelineEvents, this.thefilter), 'whendate');
