@@ -78,7 +78,16 @@ timeline.controller('timelineCtrl', ['$scope', '$filter', '$http', '$mdDialog', 
         }).then(function(response) {
           var range = response.result;
           if (range.values.length > 0) {
-            
+            //lets assume then the we can remove all the items in the existing timeline
+               thetimeline.timelineEvents = [{
+        'when': '',
+        'whendate': null,
+        'event': '',
+        'who': '',
+        'where': '',
+        'category': '',
+        'notes': ''
+    }];
             for (i = 0; i < range.values.length; i++) {
               var row = range.values[i];
               var value ={when:""};  
@@ -91,6 +100,7 @@ timeline.controller('timelineCtrl', ['$scope', '$filter', '$http', '$mdDialog', 
                 value.notes = row[5];
                 thetimeline.timelineEvents.push(value);
             }
+            localStorage.setItem('events', JSON.stringify(thetimeline.timelineEvents));
             thetimeline.filteredEvents = $filter('orderBy')($filter('filter')(thetimeline.timelineEvents, this.thefilter), 'whendate');
             thetimeline.theselectedevent = thetimeline.filteredEvents[0];
           } else {
@@ -124,7 +134,7 @@ timeline.controller('timelineCtrl', ['$scope', '$filter', '$http', '$mdDialog', 
         'notes': ''
     }];
     if (!!localStorage.getItem('events')) {
-       // thetimeline.timelineEvents = JSON.parse(localStorage.getItem('events'));
+        thetimeline.timelineEvents = JSON.parse(localStorage.getItem('events'));
     }
 
     this.filteredEvents = $filter('orderBy')($filter('filter')(this.timelineEvents, this.thefilter), 'whendate');
