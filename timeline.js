@@ -16,8 +16,6 @@ timeline.controller('timelineCtrl', ['$scope', '$filter', '$http', '$mdDialog', 
       // included, separated by spaces.
       var SCOPES = "https://www.googleapis.com/auth/spreadsheets";
 
-      var authorizeButton = document.getElementById('authorize-button');
-      var signoutButton = document.getElementById('signout-button');
 
       /**
        *  On load, called to load the auth2 library and API client library.
@@ -41,8 +39,7 @@ timeline.controller('timelineCtrl', ['$scope', '$filter', '$http', '$mdDialog', 
 
           // Handle the initial sign-in state.
           updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-          authorizeButton.onclick = handleAuthClick;
-          signoutButton.onclick = handleSignoutClick;
+
         });
       }
 
@@ -52,12 +49,8 @@ timeline.controller('timelineCtrl', ['$scope', '$filter', '$http', '$mdDialog', 
        */
       this.updateSigninStatus = function (isSignedIn) {
         if (isSignedIn) {
-          authorizeButton.style.display = 'none';
-          signoutButton.style.display = 'block';
           this.getData();
         } else {
-          authorizeButton.style.display = 'block';
-          signoutButton.style.display = 'none';
         }
       }
 
@@ -218,5 +211,8 @@ timeline.controller('timelineCtrl', ['$scope', '$filter', '$http', '$mdDialog', 
         // called asynchronously if an error occurs
         // or server returns response with an error status.
     });
+    
+    this.initClient();
+    
     return this;
 }]);
