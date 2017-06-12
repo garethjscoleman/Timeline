@@ -30,7 +30,7 @@ timeline.controller('timelineCtrl', ['$scope', '$filter', '$http', '$mdDialog', 
        *  Initializes the API client library and sets up sign-in state
        *  listeners.
        */
-      function this.initClient() {
+      this.initClient = function() {
         gapi.client.init({
           discoveryDocs: DISCOVERY_DOCS,
           clientId: CLIENT_ID,
@@ -50,11 +50,11 @@ timeline.controller('timelineCtrl', ['$scope', '$filter', '$http', '$mdDialog', 
        *  Called when the signed in status changes, to update the UI
        *  appropriately. After a sign-in, the API is called.
        */
-      function this.updateSigninStatus(isSignedIn) {
+      this.updateSigninStatus = function (isSignedIn) {
         if (isSignedIn) {
           authorizeButton.style.display = 'none';
           signoutButton.style.display = 'block';
-          listMajors();
+          this.getData();
         } else {
           authorizeButton.style.display = 'block';
           signoutButton.style.display = 'none';
@@ -64,31 +64,20 @@ timeline.controller('timelineCtrl', ['$scope', '$filter', '$http', '$mdDialog', 
       /**
        *  Sign in the user upon button click.
        */
-      function this.handleAuthClick(event) {
+      this.handleAuthClick = function (event) {
         gapi.auth2.getAuthInstance().signIn();
       }
 
       /**
        *  Sign out the user upon button click.
        */
-      function this.handleSignoutClick(event) {
+      this.handleSignoutClick = function (event) {
         gapi.auth2.getAuthInstance().signOut();
       }
 
-      /**
-       * Append a pre element to the body containing the given message
-       * as its text node. Used to display the results of the API call.
-       *
-       * @param {string} message Text to be placed in pre element.
-       */
-      function appendPre(message) {
-        var pre = document.getElementById('content');
-        var textContent = document.createTextNode(message + '\n');
-        pre.appendChild(textContent);
-      }
 
      
-      function getData() {
+      this.getData = function () {
         gapi.client.sheets.spreadsheets.values.get({
           spreadsheetId: '1kOA4RNBdGbcleiH8Q8yhc_YD8HHeIluH7opTzTPZYcw',
           range: 'Sheet1!A5:E',
